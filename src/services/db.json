@@ -1,0 +1,18 @@
+{
+  "usuarios": [
+    {
+      "id": "87c9",
+      "correo": "hillaryfwd19@gmail.com",
+      "nombreCompleto": "Hillary Valeria Calderon Ulloa",
+      "usuario": "Hilla",
+      "clave": "123"
+    },
+    {
+      "id": "d523",
+      "correo": "Pepo@gmail.com",
+      "nombreCompleto": "Pepo Socorro",
+      "usuario": "peposocorro345",
+      "clave": "pepo345"
+    }
+  ]
+}

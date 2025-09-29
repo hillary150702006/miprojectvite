@@ -1,0 +1,96 @@
+/* Estilos para el Footer */
+.pie-pagina {
+  background-color: #000000;
+  color: white;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.contenedor-pie {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.seccion-contacto h3,
+.seccion-enlaces h3,
+.seccion-redes h3 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.seccion-contacto p,
+.seccion-enlaces ul {
+  margin-bottom: 0.5rem;
+}
+
+.seccion-contacto a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.seccion-contacto a:hover {
+  text-decoration: underline;
+}
+
+.seccion-enlaces ul {
+  list-style: none;
+  padding: 0;
+}
+
+.seccion-enlaces li {
+  margin-bottom: 0.5rem;
+}
+
+.seccion-enlaces a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.seccion-enlaces a:hover {
+  text-decoration: underline;
+}
+
+.logos-redes {
+  display: flex;
+  gap: 1rem;
+}
+
+.icono-red {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.icono-red:hover {
+  color: #60a5fa;
+}
+
+.seccion-creditos {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #374151;
+}
+
+.derechos-autor {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #374151;
+  margin-top: 1rem;
+  color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenedor-pie {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .logos-redes {
+    justify-content: center;
+  }
+}

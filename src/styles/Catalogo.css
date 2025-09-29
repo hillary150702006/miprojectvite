@@ -1,0 +1,121 @@
+.catalogo-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.catalogo-container h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.product-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  padding: 15px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-card p {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.product-card button {
+  background-color: #4f46e5; /* azul */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease !important;
+  width: auto;
+  align-self: stretch;
+  text-align: center;
+  transform: none !important;
+  animation: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  user-select: none;
+}
+
+.product-card button:hover {
+  background-color: #4338ca;
+  transform: none !important; /* eliminar zoom */
+  animation: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.carrito {
+  margin-top: 40px;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  max-width: 600px;
+}
+
+.carrito h3 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.carrito ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+.carrito ul li {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.carrito p {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.carrito button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.carrito button:hover {
+  background-color: #4338ca;
+  transform: none;
+}

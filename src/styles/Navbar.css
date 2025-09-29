@@ -1,0 +1,193 @@
+/* Cabecera del Navbar */
+.navbar-cabecera {
+  background-color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar-contenedor {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.navbar-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Sección del Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-circulo {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(to right, #2563eb, #06b6d4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icono {
+  color: #ffffff;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.logo-texto {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.nombre-marca {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Navegación de Escritorio */
+.navbar-escritorio {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.enlace-navegacion {
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.enlace-navegacion:hover {
+  color: #2563eb;
+}
+
+/* Barra de Búsqueda */
+.barra-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.entrada-busqueda {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 200px;
+}
+
+.boton-busqueda {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton-busqueda:hover {
+  background-color: #1d4ed8;
+}
+
+/* Carrito y Acciones */
+.navbar-acciones {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.boton-carrito {
+  position: relative;
+  padding: 0.5rem;
+  color: #374151;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.boton-carrito:hover {
+  color: #2563eb;
+}
+
+.icono-carrito {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.insignia-carrito {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 0.75rem;
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton-menu-movil {
+  padding: 0.5rem;
+  color: #374151;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+
+.icono-menu {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Navegación Móvil */
+.navbar-movil {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.menu-movil {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.enlace-movil {
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.enlace-movil:hover {
+  color: #2563eb;
+}
+
+/* Consultas de Medios */
+@media (min-width: 768px) {
+  .navbar-escritorio {
+    display: flex;
+  }
+
+  .boton-menu-movil {
+    display: none;
+  }
+}
