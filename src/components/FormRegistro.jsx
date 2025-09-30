@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../styles/Registro.css"
 import React, { useEffect, useState } from 'react';
 import { postData } from "../services/fetch";
@@ -10,6 +10,8 @@ function FormRegistro() {
   const [nombreUsuario,setNombreUsuario] = useState("")
   const [claveUsuario,setClave] = useState("")
 
+  const navigate = useNavigate();
+
   async function agregarUsuario() {
       const objUsuario = {
         correo:correoUsuario,
@@ -17,8 +19,18 @@ function FormRegistro() {
         usuario:nombreUsuario,
         clave:claveUsuario
       }
-      await postData("usuarios",objUsuario)
-
+      try {
+        await postData("usuarios",objUsuario)
+        if(localStorage.getItem('pendingOrder') === 'true' || localStorage.getItem('carrito')){
+          localStorage.setItem('usuario', JSON.stringify(objUsuario));
+          localStorage.removeItem('pendingOrder');
+          navigate('/carrito-pago');
+        } else {
+          alert('Registro exitoso.');
+        }
+      } catch (error) {
+        alert('Error en el registro: ' + error.message);
+      }
   }
 
   return (
@@ -35,7 +47,7 @@ function FormRegistro() {
         <input type="text" placeholder='contraseña' onChange={(e)=>setClave(e.target.value)}/> <label htmlFor="contraseña"></label>
 
         <button type='button' onClick={agregarUsuario}>Registrarse</button>
-        <Link to={"/inicio"}>iniciar sesión</Link>
+        <Link to="/login">iniciar sesión</Link>
       </div>
     </div>
   )

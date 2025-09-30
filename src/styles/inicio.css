@@ -1,16 +1,16 @@
-/* Estilos para la nueva sección de bienvenida - tema embutidos saludables, imagen de fondo de header con cuadro de texto debajo como modelo */
+
 .seccion-bienvenida {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, #f0f8ff, #ffffff); /* Gradiente de azul claro a blanco */
+  background: linear-gradient(to bottom, #f0f8ff, #ffffff); 
   overflow: hidden;
 }
 
 .header-imagen {
   width: 100%;
-  height: 60vh; /* Altura fija para imagen de header como modelo */
+  height: 60vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,7 +19,7 @@
 
 .contenido-hero {
   flex: 1;
-  background-color: #f0f8ff; /* Fondo azul claro para cuadro de texto como modelo */
+  background-color: #f0f8ff; 
   padding: 3rem 2rem;
   text-align: center;
   display: flex;
@@ -31,7 +31,7 @@
 
 .contenido-hero h1 {
   font-size: 2.5rem;
-  color: #1a365d; /* Azul gris oscuro para h1 como modelo */
+  color: #1a365d;
   margin-bottom: 1rem;
   line-height: 1.2;
   font-weight: bold;
@@ -39,14 +39,14 @@
 
 .contenido-hero p {
   font-size: 1.1rem;
-  color: #4a5568; /* Gris medio para p como modelo */
+  color: #4a5568; 
   margin-bottom: 2rem;
   line-height: 1.5;
   max-width: 600px;
 }
 
 .btn-explorar {
-  background-color: #48bb78; /* Verde como modelo */
+  background-color: #48bb78; 
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -69,7 +69,7 @@
 /* Responsive para móvil */
 @media (max-width: 768px) {
   .header-imagen {
-  height: 40vh; /* Más corto en móvil */
+  height: 40vh; 
   }
 
   .contenido-hero {
@@ -86,8 +86,8 @@
   }
 }
 
-/* Estilos antiguos del formulario (mantenidos por si acaso, pero ocultos) */
+
 .formulario-inicio,
 .datosUsuarios {
-  display: none; /* Ocultar estilos viejos si quedan residuos */
+  display: none; 
 }

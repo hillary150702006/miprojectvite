@@ -1,0 +1,3 @@
+- [x] Modificar FormRegistro.jsx: Agregar redirección a /carrito-pago si hay pendingOrder, y guardar usuario en localStorage.
+- [x] Modificar CarritoPago.jsx: Mostrar nombre del usuario, agregar selección de métodos de pago (Tarjeta de Crédito, Simpe Móvil), mostrar total.
+- [x] Probar el flujo: Registrar con pedido pendiente y verificar que aparezca la página de pago con la información requerida.
