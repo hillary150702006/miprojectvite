@@ -47,6 +47,19 @@ const Catalogo = () => {
     }
   };
 
+  const eliminarDelCarrito = (index) => {
+    const nuevoCarrito = carrito.filter((_, i) => i !== index);
+    setCarrito(nuevoCarrito);
+    localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
+  };
+
+  const cancelarOrden = () => {
+    if (window.confirm('¿Estás seguro de que quieres cancelar toda la orden?')) {
+      setCarrito([]);
+      localStorage.removeItem('carrito');
+    }
+  };
+
   const ProductCard = ({ nombre, descripcion, precio, imagen, onAgregar }) => (
     <div className="product-card">
       <img src={imagen} alt={nombre} />
@@ -77,13 +90,23 @@ const Catalogo = () => {
             <li key={i} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
               <img src={item.imagen} alt={item.nombre} style={{ width: '50px', height: '50px', marginRight: '10px', objectFit: 'cover', borderRadius: '5px' }} />
               <span>{item.nombre} - ${item.precio.toFixed(2)}</span>
+              <button
+                className="btn-delete"
+                style={{ marginLeft: 'auto' }}
+                onClick={() => eliminarDelCarrito(i)}
+              >
+                Eliminar
+              </button>
             </li>
           ))}
         </ul>
         <p>
           <strong>Total:</strong> ${total.toFixed(2)}
         </p>
-        <button onClick={realizarPedido}>Realizar pedido</button>
+        <button className="btn-realizar-pedido" onClick={realizarPedido}>Realizar pedido</button>
+        <button className="cancel-order-btn" onClick={cancelarOrden}>
+          Cancelar Orden
+        </button>
       </div>
     </div>
   );

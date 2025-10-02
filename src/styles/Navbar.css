@@ -1,4 +1,4 @@
-/* Cabecera del Navbar */
+
 .navbar-cabecera {
   background-color: #ffffff;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -19,7 +19,7 @@
   justify-content: space-between;
 }
 
-/* Sección del Logo */
+
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@
   margin: 0;
 }
 
-/* Navegación de Escritorio */
+
 .navbar-escritorio {
   display: none;
   align-items: center;
@@ -73,7 +73,7 @@
   color: #2563eb;
 }
 
-/* Barra de Búsqueda */
+
 .barra-busqueda {
   display: flex;
   align-items: center;
@@ -90,8 +90,8 @@
 
 .boton-busqueda {
   padding: 0.5rem 1rem;
-  background-color: #2563eb;
-  color: white;
+ background-color: #06b6d4;
+  color: rgb(207, 17, 17);
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -100,10 +100,10 @@
 }
 
 .boton-busqueda:hover {
-  background-color: #1d4ed8;
+  background-color: #1dd84c;
 }
 
-/* Carrito y Acciones */
+
 .navbar-acciones {
   display: flex;
   align-items: center;
@@ -158,7 +158,7 @@
   height: 1.5rem;
 }
 
-/* Navegación Móvil */
+
 .navbar-movil {
   margin-top: 1rem;
   padding-bottom: 1rem;
@@ -181,7 +181,7 @@
   color: #2563eb;
 }
 
-/* Consultas de Medios */
+
 @media (min-width: 768px) {
   .navbar-escritorio {
     display: flex;

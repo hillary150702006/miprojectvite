@@ -1,4 +1,4 @@
-/* Estilos para el Footer */
+
 .pie-pagina {
   background-color: #000000;
   color: white;
@@ -83,7 +83,7 @@
   color: #9ca3af;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .contenedor-pie {
     grid-template-columns: 1fr;

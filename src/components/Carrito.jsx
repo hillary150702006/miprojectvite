@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Carrito.css';
 
 const Carrito = () => {
   const [carrito, setCarrito] = useState([]);
@@ -20,39 +21,60 @@ const Carrito = () => {
     localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
   };
 
+  const cancelarOrden = () => {
+    if (window.confirm('¿Estás seguro de que quieres cancelar toda la orden?')) {
+      setCarrito([]);
+      localStorage.removeItem('carrito');
+      navigate('/catalogo');
+    }
+  };
+
   if (carrito.length === 0) {
     return (
-      <div style={{ padding: '20px', textAlign: 'center' }}>
-        <h2>Carrito de Compras</h2>
-        <p>El carrito está vacío.</p>
-        <button onClick={() => navigate('/catalogo')}>Ir al Catálogo</button>
+      <div className="cart-container">
+        <div className="empty-cart">
+          <h2>Carrito de Compras</h2>
+          <p>El carrito está vacío.</p>
+          <button className="btn-primary" onClick={() => navigate('/catalogo')}>
+            Ir al Catálogo
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+    <div className="cart-container">
       <h2>Carrito de Compras</h2>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+      <ul className="product-list">
         {carrito.map((item, i) => (
-          <li key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', borderBottom: '1px solid #ccc', paddingBottom: '10px' }}>
-            <div>
-              <h4>{item.nombre}</h4>
-              <p>₡{item.precio.toFixed(0)}</p>
+          <li key={i} className="product-item">
+            <div className="product-details">
+              <h4 className="product-name">{item.nombre}</h4>
+              <p className="product-price">₡{item.precio.toFixed(0)}</p>
             </div>
-            <button onClick={() => eliminarDelCarrito(i)} style={{ background: 'red', color: 'white', border: 'none', padding: '5px 10px', cursor: 'pointer' }}>
+            <button className="btn-delete" onClick={() => eliminarDelCarrito(i)}>
               Eliminar
             </button>
           </li>
         ))}
       </ul>
-      <p><strong>Total: ₡{total.toFixed(0)}</strong></p>
-      <button onClick={() => navigate('/carrito-pago')} style={{ background: 'green', color: 'white', border: 'none', padding: '10px 20px', cursor: 'pointer', marginRight: '10px' }}>
-        Ir a Pagar
-      </button>
-      <button onClick={() => navigate('/catalogo')} style={{ background: 'blue', color: 'white', border: 'none', padding: '10px 20px', cursor: 'pointer' }}>
-        Continuar Comprando
-      </button>
+      <div className="total-section">
+        <p className="total-amount">Total: ₡{total.toFixed(0)}</p>
+      </div>
+      <div className="action-buttons">
+        <button className="btn-primary btn-pay" onClick={() => navigate('/carrito-pago')}>
+          Ir a Pagar
+        </button>
+        <button className="btn-secondary btn-continue" onClick={() => navigate('/catalogo')}>
+          Continuar Comprando
+        </button>
+      </div>
+      <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <button className="cancel-order-btn" onClick={cancelarOrden}>
+          Cancelar Orden
+        </button>
+      </div>
     </div>
   );
 };

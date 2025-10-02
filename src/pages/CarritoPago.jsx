@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/CarritoPago.css';
 
 const CarritoPago = () => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ const CarritoPago = () => {
   const [metodoPago, setMetodoPago] = useState('');
 
   useEffect(() => {
-    // Obtener carrito guardado en localStorage o iniciar vacío
+   
     const carritoGuardado = localStorage.getItem('carrito');
     if (carritoGuardado) {
       setCarrito(JSON.parse(carritoGuardado));
@@ -32,37 +33,96 @@ const CarritoPago = () => {
 
   if (carrito.length === 0) {
     return (
-      <div style={{ padding: '20px' }}>
-        <h2>Carrito vacío</h2>
-        <p>No hay productos para pagar.</p>
+      <div className="checkout-container">
+        <div className="empty-cart">
+          <h2>Carrito vacío</h2>
+          <p>No hay productos para pagar.</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="checkout-container">
       <h2>Confirmar Pago</h2>
-      <p><strong>Usuario:</strong> {usuario ? usuario.nombreCompleto : 'No registrado'}</p>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {carrito.map((item, i) => (
-          <li key={i} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-            <img src={item.imagen} alt={item.nombre} style={{ width: '60px', height: '60px', marginRight: '15px', objectFit: 'cover', borderRadius: '5px' }} />
-            <span>{item.nombre} - ₡{item.precio.toFixed(0)}</span>
-          </li>
-        ))}
-      </ul>
-      <div style={{ marginBottom: '10px' }}>
-        <label htmlFor="metodoPago"><strong>Método de Pago:</strong></label>
-        <select id="metodoPago" value={metodoPago} onChange={(e) => setMetodoPago(e.target.value)} style={{ marginLeft: '10px', padding: '5px' }}>
-          <option value="">Seleccionar método de pago</option>
-          <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
-          <option value="Simpe Móvil">Simpe Móvil</option>
-        </select>
+
+      <div className="user-info">
+        <p><strong>Usuario:</strong> {usuario ? usuario.nombreCompleto : 'No registrado'}</p>
       </div>
-      <p>
-        <strong>Total a pagar:</strong> ₡{total.toFixed(0)}
-      </p>
-      <button onClick={confirmarPago} style={{ padding: '10px 20px', fontSize: '16px' }}>
+
+      <div className="product-list">
+        {carrito.map((item, i) => (
+          <div key={i} className="product-item">
+            <img src={item.imagen} alt={item.nombre} className="product-image" />
+            <div className="product-details">
+              <div className="product-name">{item.nombre}</div>
+              <div className="product-price">₡{item.precio.toFixed(0)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="payment-section">
+        <label>Método de Pago:</label>
+        <div className="payment-options">
+          <label className="payment-option">
+            <input
+              type="radio"
+              name="metodoPago"
+              value="Transferencia Electrónica"
+              checked={metodoPago === "Transferencia Electrónica"}
+              onChange={(e) => setMetodoPago(e.target.value)}
+            />
+            <div className="option-content">
+              <div className="option-icon transfer-icon">↗️</div>
+              <div className="option-details">
+                <div className="option-title">Transferencia Electrónica</div>
+                <div className="option-desc">Transferencia bancaria segura</div>
+              </div>
+            </div>
+          </label>
+
+          <label className="payment-option">
+            <input
+              type="radio"
+              name="metodoPago"
+              value="Sinpe Móvil"
+              checked={metodoPago === "Sinpe Móvil"}
+              onChange={(e) => setMetodoPago(e.target.value)}
+            />
+            <div className="option-content">
+              <div className="option-icon mobile-icon">📱</div>
+              <div className="option-details">
+                <div className="option-title">Sinpe Móvil</div>
+                <div className="option-desc">Pago rápido con tu teléfono</div>
+              </div>
+            </div>
+          </label>
+
+          <label className="payment-option">
+            <input
+              type="radio"
+              name="metodoPago"
+              value="Tarjeta de Crédito/Débito"
+              checked={metodoPago === "Tarjeta de Crédito/Débito"}
+              onChange={(e) => setMetodoPago(e.target.value)}
+            />
+            <div className="option-content">
+              <div className="option-icon card-icon">💳</div>
+              <div className="option-details">
+                <div className="option-title">Tarjeta de Crédito/Débito</div>
+                <div className="option-desc">Pago con tarjeta Visa/Mastercard</div>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div className="total-section">
+        <p className="total-amount">Total: ₡{total.toFixed(0)}</p>
+      </div>
+
+      <button onClick={confirmarPago} className="confirm-button">
         Confirmar Pago
       </button>
     </div>

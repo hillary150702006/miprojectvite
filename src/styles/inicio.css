@@ -19,7 +19,7 @@
 
 .contenido-hero {
   flex: 1;
-  background-color: #f0f8ff; 
+  background-color: #eff0f1; 
   padding: 3rem 2rem;
   text-align: center;
   display: flex;
@@ -46,8 +46,8 @@
 }
 
 .btn-explorar {
-  background-color: #48bb78; 
-  color: white;
+  background-color: #7626d1 !important; 
+  color: rgb(129, 53, 53) !important;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
@@ -62,11 +62,10 @@
 }
 
 .btn-explorar:hover {
-  background-color: #38a169;
+  background-color: #1105be !important;
   transform: translateY(-2px);
 }
 
-/* Responsive para móvil */
 @media (max-width: 768px) {
   .header-imagen {
   height: 40vh; 
@@ -90,4 +89,321 @@
 .formulario-inicio,
 .datosUsuarios {
   display: none; 
+}
+
+
+.info-nutricional {
+  margin: 3rem auto;
+  max-width: 950px;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  animation: sectionFadeIn 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-nutricional::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #48bb78, #38a169, #2f855a);
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-nutricional h2 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1a365d;
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
+  animation: titleSlideIn 0.6s ease-out;
+}
+
+@keyframes titleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tabla-nutricional {
+  background: linear-gradient(135deg, #fefefe 0%, #f7fafc 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  animation: tableSlideIn 0.7s ease-out 0.3s both;
+}
+
+@keyframes tableSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.tabla-nutricional table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tabla-nutricional th {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.tabla-nutricional th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.tabla-nutricional td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(72, 187, 120, 0.1);
+  font-size: 0.95rem;
+  color: #2d3748;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.tabla-nutricional tr:nth-child(even) td {
+  background: rgba(72, 187, 120, 0.02);
+}
+
+.tabla-nutricional tr:hover td {
+  background: rgba(72, 187, 120, 0.05);
+  transform: scale(1.01);
+}
+
+.notas-nutricionales {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 600;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: notesFadeIn 0.6s ease-out 0.5s both;
+}
+
+@keyframes notesFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notas-nutricionales span {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  color: #065f46;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(72, 187, 120, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.notas-nutricionales span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.2);
+}
+
+.notas-nutricionales span::before {
+  content: '✓';
+  font-weight: bold;
+  color: #38a169;
+}
+
+
+.blog-recetas {
+  margin: 4rem auto 5rem;
+  max-width: 1000px;
+  padding: 0 2rem;
+  animation: sectionFadeIn 0.8s ease-out;
+}
+
+.blog-recetas h2 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1a365d;
+  font-size: 2.2rem;
+  text-align: center;
+  position: relative;
+  animation: titleSlideIn 0.6s ease-out;
+}
+
+.recetas-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.receta-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  flex: 1 1 45%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  animation: cardSlideIn 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.receta-card:nth-child(1) { animation-delay: 0.1s; }
+.receta-card:nth-child(2) { animation-delay: 0.2s; }
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.receta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b, #d97706, #b45309);
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.receta-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.receta-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(245, 158, 11, 0.1);
+}
+
+.receta-card:hover img {
+  transform: scale(1.05);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.receta-card h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.2rem;
+  color: #1a365d;
+  font-weight: 600;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.receta-card:hover h3 {
+  color: #d97706;
+}
+
+.receta-card p {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.btn-leer-mas {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-leer-mas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-leer-mas:hover::before {
+  left: 100%;
+}
+
+.btn-leer-mas:hover {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
 }

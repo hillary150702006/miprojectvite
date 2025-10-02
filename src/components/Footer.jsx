@@ -1,6 +1,6 @@
 import React from 'react';
 import { Instagram, Facebook } from 'lucide-react';
-import '../styles/Footer.css'; // Assuming we'll create this CSS file
+import '../styles/Footer.css'; 
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="seccion-contacto">
           <h3>Información de Contacto</h3>
           <p>Email: <a href="mailto:contacto@diamanteazul.com">contacto@diamanteazul.com</a></p>
-          <p>Teléfono: +34 123 456 78</p>
+          <p>Teléfono: +506 2230 2212</p>
         </div>
         
         <div className="seccion-enlaces">
@@ -41,7 +41,7 @@ const Footer = () => {
       </div>
       
       <div className="derechos-autor">
-        <p>&copy; 2024 Diamante Azul. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Diamante Azul. Todos los derechos reservados.</p>
       </div>
     </footer>
   );

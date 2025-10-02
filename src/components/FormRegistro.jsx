@@ -21,15 +21,23 @@ function FormRegistro() {
       }
       try {
         await postData("usuarios",objUsuario)
+        
+        const userData = {
+          nombreCompleto: objUsuario.nombreCompleto,
+          usuario: objUsuario.usuario,
+          correo: objUsuario.correo,
+          foto: null
+        };
+        localStorage.setItem('usuario', JSON.stringify(userData));
         if(localStorage.getItem('pendingOrder') === 'true' || localStorage.getItem('carrito')){
-          localStorage.setItem('usuario', JSON.stringify(objUsuario));
           localStorage.removeItem('pendingOrder');
           navigate('/carrito-pago');
         } else {
-          alert('Registro exitoso.');
+          navigate('/perfil');
         }
       } catch (error) {
-        alert('Error en el registro: ' + error.message);
+        console.error('Error en el registro:', error.message);
+       
       }
   }
 
@@ -46,8 +54,8 @@ function FormRegistro() {
 
         <input type="text" placeholder='contraseña' onChange={(e)=>setClave(e.target.value)}/> <label htmlFor="contraseña"></label>
 
-        <button type='button' onClick={agregarUsuario}>Registrarse</button>
-        <Link to="/login">iniciar sesión</Link>
+        <button type='button' className="register-btn" onClick={agregarUsuario}>Registrarse</button>
+        <button type='button' className="login-btn" onClick={() => navigate('/login')}>Iniciar Sesión</button>
       </div>
     </div>
   )

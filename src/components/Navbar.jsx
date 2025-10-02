@@ -14,7 +14,7 @@ const Navbar = ({ cartItems = [], onCartToggle }) => {
     <header className="navbar-cabecera">
       <div className="navbar-contenedor">
         <div className="navbar-contenido">
-          {/* Logo */}
+          
           <a href="/" target="_blank" rel="noopener noreferrer" className="navbar-logo">
             <div className="logo-circulo">
               <Fish className="logo-icono" />
@@ -22,7 +22,7 @@ const Navbar = ({ cartItems = [], onCartToggle }) => {
             <h1 className="nombre-marca">Diamante Azul</h1>
           </a>
 
-          {/* Desktop Navigation */}
+         
           <nav className="navbar-escritorio">
             <Link to="/" className="enlace-navegacion">
               inicio
@@ -36,7 +36,7 @@ const Navbar = ({ cartItems = [], onCartToggle }) => {
             <Link to="/login" className="enlace-navegacion">
               iniciar sesion
             </Link>
-            {/* Search Bar */}
+          
             <form className="barra-busqueda">
               <input
                 type="text"
@@ -49,7 +49,7 @@ const Navbar = ({ cartItems = [], onCartToggle }) => {
             </form>
           </nav>
 
-          {/* Cart and Mobile Menu Button */}
+          
           <div className="navbar-acciones">
             <button
               onClick={onCartToggle}
@@ -72,7 +72,7 @@ const Navbar = ({ cartItems = [], onCartToggle }) => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        
         {mobileMenuOpen && (
           <nav className="navbar-movil">
             <div className="menu-movil">

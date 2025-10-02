@@ -1,3 +1,8 @@
+import db from './db.json';
+
+
+let localDb = JSON.parse(JSON.stringify(db));
+
 async function getData(edpoint) {
     try {
         const peticion = await fetch(`http://localhost:3001/${edpoint}`,{ 
@@ -14,7 +19,12 @@ async function getData(edpoint) {
         
     } catch (error) {
         console.error (error);
-        
+       
+        if (localDb[edpoint]) {
+            console.log('Using local db for', edpoint);
+            return localDb[edpoint];
+        }
+        throw error;
     }
 }
    
@@ -37,7 +47,11 @@ async function postData(edpoint, obj) {
         
     } catch (error) {
         console.error (error);
-        
+        if (localDb[edpoint]) {
+            localDb[edpoint].push(obj);
+            console.log('Added to local db for', edpoint);
+        }
+        return obj;
     }
 }
 export {postData}
@@ -59,7 +73,7 @@ async function putData(edpoint, obj) {
         
     } catch (error) {
         console.error (error);
-        
+        throw error;
     }
 }
 export {putData}
@@ -81,8 +95,7 @@ async function deleteData(edpoint, obj) {
         
     } catch (error) {
         console.error (error);
-        
+        throw error;
     }
 }
 export {deleteData}
-

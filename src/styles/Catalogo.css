@@ -17,14 +17,35 @@
 }
 
 .product-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-  padding: 15px;
-  width: 300px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  animation: cardSlideIn 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .product-card img {
@@ -47,66 +68,195 @@
 }
 
 .product-card button {
-  background-color: #4f46e5; /* azul */
-  color: white;
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  color: rgb(68, 13, 13);
   border: none;
-  border-radius: 6px;
-  padding: 8px 12px;
+  border-radius: 8px;
+  padding: 10px 15px;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
   width: auto;
   align-self: stretch;
   text-align: center;
-  transform: none !important;
-  animation: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  user-select: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+  animation: pulseAdd 2s infinite;
+}
+
+.product-card button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.product-card button:hover::before {
+  left: 100%;
 }
 
 .product-card button:hover {
-  background-color: #4338ca;
-  transform: none !important; /* eliminar zoom */
-  animation: none !important;
-  box-shadow: none !important;
-  outline: none !important;
+  background: linear-gradient(135deg, #ff5252, #ffb74d);
+  transform: translateY(-3px) scale(1.1) rotate(2deg);
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
+  animation: bounceAdd 0.8s ease, wiggle 0.5s ease;
+}
+
+@keyframes pulseAdd {
+  0%, 100% {
+    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 107, 107, 0.8);
+  }
+}
+
+@keyframes bounceAdd {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1.1) rotate(2deg);
+  }
+  40% {
+    transform: translateY(-6px) scale(1.1) rotate(2deg);
+  }
+  60% {
+    transform: translateY(-3px) scale(1.1) rotate(2deg);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(2deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
 }
 
 .carrito {
   margin-top: 40px;
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-  max-width: 600px;
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+  max-width: 650px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  animation: cartFadeIn 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.carrito::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #4ecdc4);
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes cartFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .carrito h3 {
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: #1a202c;
+  font-size: 1.4rem;
+  text-align: center;
+  position: relative;
 }
 
 .carrito ul {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .carrito ul li {
-  margin-bottom: 5px;
-  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  animation: itemSlideIn 0.5s ease-out;
+  animation-fill-mode: both;
+  position: relative;
+  overflow: hidden;
+}
+
+.carrito ul li:nth-child(1) { animation-delay: 0.1s; }
+.carrito ul li:nth-child(2) { animation-delay: 0.2s; }
+.carrito ul li:nth-child(3) { animation-delay: 0.3s; }
+.carrito ul li:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes itemSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.carrito ul li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carrito ul li img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carrito p {
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #2d3748;
+  text-align: center;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .carrito button {
-  background-color: #4f46e5;
-  color: white;
+  background-color: #1109b1;
+  color: rgb(145, 14, 14);
   border: none;
   border-radius: 6px;
   padding: 8px 16px;
@@ -116,6 +266,96 @@
 }
 
 .carrito button:hover {
-  background-color: #4338ca;
+  background-color: #f0f0f8;
   transform: none;
+}
+
+
+.btn-realizar-pedido {
+background-color: #edf7f6;
+  color: rgb(143, 16, 16);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+
+@keyframes pulseDelete {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 71, 87, 0.8);
+  }
+}
+
+@keyframes bounceDelete {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1.1) rotate(5deg);
+  }
+  40% {
+    transform: translateY(-4px) scale(1.1) rotate(5deg);
+  }
+  60% {
+    transform: translateY(-2px) scale(1.1) rotate(5deg);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0) rotate(5deg);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-2px) rotate(5deg);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(2px) rotate(5deg);
+  }
+}
+
+.cancel-order-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  animation: pulseCancel 2s infinite;
+}
+
+.cancel-order-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  animation: bounceCancel 0.8s ease;
+}
+
+@keyframes pulseCancel {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+  }
+}
+
+@keyframes bounceCancel {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
 }
